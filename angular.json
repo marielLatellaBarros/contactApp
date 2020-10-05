@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "contactApp"
+    }
+  },
+  "defaultProject": "contactApp",
+  "cli": {
+    "analytics": "ac95b548-a5da-45fe-9064-35b28354b97e"
+  }
 }
