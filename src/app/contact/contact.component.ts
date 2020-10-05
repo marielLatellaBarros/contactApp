@@ -2,12 +2,12 @@ import { Component } from "@angular/core"
 
 @Component({
     selector:'app-contact',
-    template: 
-    `<h2>John Doe</h2>
-    <ul>
-    <li>Email: john.doe@gmail.com</li>
-    <li>Phone: +1-202-555-0121</li>
-    </ul>`
+    templateUrl: './contact.component.html',
+    styleUrls : ['./contact.component.css']
 })
 
-export class ContactComponent{}
+export class ContactComponent{
+    name: string = 'John Doe';
+    email: string = 'john.doe@gmail.com';
+    phone: string = '011642839'
+}
