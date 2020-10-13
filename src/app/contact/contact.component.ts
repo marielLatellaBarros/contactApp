@@ -17,4 +17,8 @@ export class ContactComponent implements OnInit{
         this.email = 'john.doe@gmail.com';
         this.phone = '011642839';
     }
+
+    onClick(): void {
+        console.log('Button clicked. Status van favorite is:' + this.isFavorite);
+    }
 }
