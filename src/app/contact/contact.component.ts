@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, Input } from "@angular/core"
+import { Contact } from '../models/contact.models';
 
 @Component({
     selector:'app-contact',
@@ -6,17 +7,13 @@ import { Component, OnInit } from "@angular/core"
     styleUrls : ['./contact.component.css']
 })
 
-export class ContactComponent implements OnInit{
+export class ContactComponent{
     name: string;
     email: string;
     phone: string;
-    isFavorite: boolean = false;
+    isFavorite: boolean;
 
-    ngOnInit() {
-        this.name = 'John Doe';
-        this.email = 'john.doe@gmail.com';
-        this.phone = '011642839';
-    }
+    @Input() contact: Contact;
 
     onClick(): void {
         console.log('Button clicked. Status van favorite is:' + this.isFavorite);
