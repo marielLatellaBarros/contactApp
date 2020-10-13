@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core"
+import { Component, Input, Output, EventEmitter } from "@angular/core"
 import { Contact } from '../models/contact.models';
 
 @Component({
@@ -14,8 +14,13 @@ export class ContactComponent{
     isFavorite: boolean;
 
     @Input() contact: Contact;
-
+    @Output() onSubmit: EventEmitter<Contact> = new EventEmitter();
+    
     onClick(): void {
         console.log('Button clicked. Status van favorite is:' + this.isFavorite);
+    }
+
+    submit() {
+        this.onSubmit.emit(this.contact);
     }
 }

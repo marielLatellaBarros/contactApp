@@ -19,4 +19,9 @@ export class AppComponent implements OnInit{
       'assets/avatar.png'
       );
   }
+
+  handleData(event: Contact) {
+    console.log('Received data!', event);
+  }
+  
 }
