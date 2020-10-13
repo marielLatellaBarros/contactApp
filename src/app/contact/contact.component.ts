@@ -10,6 +10,7 @@ export class ContactComponent implements OnInit{
     name: string;
     email: string;
     phone: string;
+    isFavorite: boolean = false;
 
     ngOnInit() {
         this.name = 'John Doe';

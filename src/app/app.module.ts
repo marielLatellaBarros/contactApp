@@ -4,6 +4,7 @@ import { ContactComponent } from './contact/contact.component'
 
 import { AppComponent } from './app.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
     NewsletterComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
