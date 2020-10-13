@@ -5,12 +5,11 @@ export class Contact {
     isFavourite: boolean;
     avatar: string;
 
-
     constructor (
         name: string,
         email: string,
         phone: string,
-        isFavourite: false,
+        isFavourite: boolean,
         avatar: 'assets/avatar.png',) {
     }
 }
