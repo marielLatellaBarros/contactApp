@@ -2,14 +2,14 @@ export class Contact {
     name: string;
     email: string;
     phone: string;
-    isFavourite: boolean;
+    isFavorite: boolean;
     avatar: string;
 
     constructor (
         name: string,
         email: string,
         phone: string,
-        isFavourite: boolean,
+        isFavorite: boolean,
         avatar: 'assets/avatar.png',) {
     }
 }
