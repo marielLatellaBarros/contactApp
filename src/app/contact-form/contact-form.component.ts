@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Contact} from '../models/contact.models';
 
 @Component({
   selector: 'app-contact-form',
@@ -14,9 +15,29 @@ export class ContactFormComponent implements OnInit {
   avatar: string;
   isFavorite: boolean;
 
+  @Output() onSubmit: EventEmitter<Contact> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  submit(form): void {
+    //NOTE: Form values are linked to the name property of the input field!!!
+    /* @param value A JavaScript value, usually an object or array, to be converted.
+     * @param replacer A function that transforms the results.
+     * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
+     * */
+    console.log('Submitted ' + JSON.stringify(form.value, null, 10));
+    let contact: Contact = new Contact(
+      form.value.name,
+      form.value.email,
+      form.value.phone,
+      form.value.isFavorite,
+      form.value.avatar
+    );
+    this.onSubmit.emit(contact);
+  }
+
 
 }

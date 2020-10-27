@@ -1,5 +1,5 @@
 <h2>Form</h2>
-<form #form="ngForm">
+<form #form="ngForm" (ngSubmit)="submit(form)">
     <input type="text" name="name" 
           placeholder="Name" [(ngModel)]="name"><br/>
     <input type="email" name="email" 
