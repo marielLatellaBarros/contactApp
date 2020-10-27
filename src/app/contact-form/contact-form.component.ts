@@ -36,6 +36,7 @@ export class ContactFormComponent implements OnInit {
       form.value.isFavorite,
       form.value.avatar
     );
+    form.reset();
     this.onSubmit.emit(contact);
   }
 
