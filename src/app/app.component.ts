@@ -8,16 +8,14 @@ import { Contact } from './models/contact.models';
 })
 export class AppComponent implements OnInit{
   myContact: Contact;
+  contactList: Contact[] =[
+    new Contact('jane doe', 'jane.doe@gmail.com', '0113448239', true, 'assets/avatar.png'),
+    new Contact('john doe', 'john.doe@gmail.com', '0113448238', true, 'assets/avatar.png'),
+    new Contact('kat doe', 'kat.doe@gmail.com', '0113448237', true, 'assets/avatar.png')
+  ];
   title = 'contactApp';
 
   ngOnInit(): void {
-    this.myContact = new Contact(
-      'John Doe', 
-      'john.doe@gmail.com', 
-      '01166424893',
-       true,
-      'assets/avatar.png'
-      );
   }
 
   handleData(event: Contact) {
