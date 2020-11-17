@@ -3,15 +3,24 @@
 
     <input type="text" name="name" placeholder="Name"
     formControlName="name" ><br/>
-      
+      <p *ngIf="form.get('name').hasError('minlength')" 
+      class="error">Minimum 3 characters!</p>
+      <p *ngIf="form.get('name').hasError('required')" 
+      class="error">Name is required!</p>
 
     <input type="email" name="email" placeholder="name@domain.com"
     formControlName="email"><br/>
-      
+    <p *ngIf="form.get('email').hasError('pattern')" 
+    class="error">Invalid email!</p>
+    <p *ngIf="form.get('email').hasError('required')" 
+    class="error">Email is required!</p>
 
     <input type="tel" name="phone" placeholder="Phone number"
     formControlName="phone"><br/>
-      
+    <p *ngIf="form.get('phone').hasError('minlength')" 
+    class="error">Minimum 9 characters!</p>
+    <p *ngIf="form.get('phone').hasError('required')" 
+    class="error">Phone is required!</p>
 
     <input type="text" name="avatar"placeholder="avatar url" 
     formControlName="avatar">
