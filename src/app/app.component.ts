@@ -28,5 +28,9 @@ export class AppComponent implements OnInit{
     this.contactList = this.contactService.getContactList();
   }
 
+  handleUpdate(): void {
+    this.contactList = this.contactService.getContactList();
+  }
+
   
 }

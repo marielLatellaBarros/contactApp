@@ -1,5 +1,6 @@
-import { Component, Input } from "@angular/core"
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core"
 import { Contact } from '../models/contact.models';
+import { ContactSerivce } from "../services/contact.services";
 
 @Component({
     selector:'app-contact',
@@ -7,15 +8,27 @@ import { Contact } from '../models/contact.models';
     styleUrls : ['./contact.component.css']
 })
 
-export class ContactComponent{
+export class ContactComponent implements OnInit {
+    @Input() contact: Contact;
+    @Input() index: number;
+    @Output() onUpdate: EventEmitter<any> = new EventEmitter();
+
+    constructor(private contactService: ContactSerivce){}
+
+    ngOnInit(): void {
+        throw new Error('Method not implemented.');
+    }
     name: string;
     email: string;
     phone: string;
     isFavorite: boolean;
 
-    @Input() contact: Contact;
-    
     onClick(): void {
         console.log('Button clicked. Status van favorite is:' + this.isFavorite);
+    }
+
+    toggleFavorite(index: number): void {
+        this.contactService.toggleFavorite(index);
+        this.onUpdate.emit();
     }
 }

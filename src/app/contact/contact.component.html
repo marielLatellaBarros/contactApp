@@ -9,7 +9,11 @@
     <li>Phone: {{ contact.phone }}</li>
     </ul>
 </div>
-<input type="checkbox" name="isFavorite" id="isFavorite" [(ngModel)]="contact.isFavorite">
+
+<input type="checkbox" name="isFavorite" id="isFavorite" 
+[(ngModel)]="contact.isFavorite"
+(click)="toggleFavorite(index)">
+
 <label for="isFavorite" [class.favorite]="contact.isFavorite">Favorite</label><br>
 
 
