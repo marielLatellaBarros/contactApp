@@ -30,8 +30,9 @@ export class AppComponent implements OnInit{
   }
 
   createContact(event: Contact) {
-    this.contactService.addContact(event);
-    // this.contactList = this.contactService.getContactList();
+    this.contactService.addContact(event).subscribe(() => {
+      this.fetchContactList()
+    });
   }
 
   handleUpdate(): void {

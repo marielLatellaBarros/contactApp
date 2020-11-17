@@ -34,8 +34,8 @@ export class ContactSerivce {
         });
     }
 
-    addContact(contact: Contact) {
-        this.contactList.push(contact);
+    addContact(contact: Contact): Observable<any> {
+        return this.http.post(BASEAPIURL, contact);
     }
 
     toggleFavorite(index: number): void {
