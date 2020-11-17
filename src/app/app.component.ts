@@ -16,7 +16,13 @@ export class AppComponent implements OnInit{
   constructor(private contactService: ContactSerivce) {}
 
   ngOnInit(): void {
-    this.contactList = this.contactService.getContactList();
+    this.fetchContactList();
+  }
+
+  fetchContactList(): void {
+    this.contactService.getContactList().subscribe(data => {
+      this.contactList = data;
+    })
   }
 
   handleData(event: Contact) {
@@ -25,11 +31,11 @@ export class AppComponent implements OnInit{
 
   createContact(event: Contact) {
     this.contactService.addContact(event);
-    this.contactList = this.contactService.getContactList();
+    // this.contactList = this.contactService.getContactList();
   }
 
   handleUpdate(): void {
-    this.contactList = this.contactService.getContactList();
+    this.fetchContactList();
   }
 
   
