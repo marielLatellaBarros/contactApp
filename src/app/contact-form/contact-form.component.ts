@@ -15,12 +15,21 @@ export class ContactFormComponent implements OnInit {
   // avatar: HTMLImageElement;
   avatar: string;
   isFavorite: boolean;
+  form: FormGroup;
 
   @Output() onSubmit: EventEmitter<Contact> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+    this.form = new FormGroup({
+      'name': new FormControl(null),
+      'email': new FormControl(null),
+      'phone': new FormControl(null),
+      'isFavorite': new FormControl(false),
+      'avatar': new FormControl(null),
+
+    });
   }
 
   submit(form): void {
