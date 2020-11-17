@@ -27,8 +27,9 @@ export class ContactComponent implements OnInit {
         console.log('Button clicked. Status van favorite is:' + this.isFavorite);
     }
 
-    toggleFavorite(index: number): void {
-        this.contactService.toggleFavorite(index);
-        this.onUpdate.emit();
+    toggleFavorite(id: string, isFavorite: boolean): void {
+        this.contactService.updateContact(id, {isFavorite: isFavorite}).subscribe(() => {
+            this.onUpdate.emit();
+        });
     }
 }

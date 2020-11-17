@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 
 
 const BASEAPIURL: string = 'https://webexpert1718.firebaseio.com/contacts.json';
-
+const CONTACTAPIURL: string = 'https://webexpert1718.firebaseio.com/contacts/';
 @Injectable()
 export class ContactSerivce {
     contactList;
@@ -38,7 +38,12 @@ export class ContactSerivce {
         return this.http.post(BASEAPIURL, contact);
     }
 
-    toggleFavorite(index: number): void {
-        this.contactList[index].isFavorite = !this.contactList[index].isFavorite;
+    // toggleFavorite(index: number): void {
+    //     this.contactList[index].isFavorite = !this.contactList[index].isFavorite;
+    // }
+
+    updateContact(id: string, data: any): Observable<any> {
+        let url: string = `${CONTACTAPIURL}${id}.json`;
+        return this.http.patch(url, data);
     }
 }
