@@ -1,15 +1,14 @@
 import { Contact } from '../models/contact.models';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ContactSerivce {
-    contactList = [
-        new Contact('jane doe', 'jane.doe@gmail.com', '01134543212', true, "assets/avatar.png"),
-        new Contact('john doe', 'john.doe@gmail.com', '01144323424', false, "assets/avatar.png"),
-        new Contact('Dries Swinnen', 'dries.swinnen@gmail.com', '01122233322', true, "assets/avatar.png"),
-    ];
+    contactList;
 
-    constructor() {}
+    constructor(private http: HttpClient) {}
 
     getContactList(): Contact[] {
         return this.contactList;

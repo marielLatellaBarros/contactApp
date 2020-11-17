@@ -7,6 +7,7 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ContactSerivce } from "./services/contact.services";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ContactSerivce } from "./services/contact.services";
   imports: [
     BrowserModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ContactSerivce],
   bootstrap: [AppComponent]
