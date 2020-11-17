@@ -1,5 +1,7 @@
 import { Contact } from '../models/contact.models';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class ContactSerivce {
     contactList = [
         new Contact('jane doe', 'jane.doe@gmail.com', '01134543212', true, "assets/avatar.png"),
