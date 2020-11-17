@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Contact} from '../models/contact.models';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-contact-form',
@@ -23,12 +24,11 @@ export class ContactFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      'name': new FormControl(null),
-      'email': new FormControl(null),
-      'phone': new FormControl(null),
+      'name': new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      'email': new FormControl(null, [Validators.required, Validators.pattern(/^[a-z0-9_\.]+/i)]),
+      'phone': new FormControl(null, [Validators.required, Validators.minLength(9)]),
       'isFavorite': new FormControl(false),
       'avatar': new FormControl(null),
-
     });
   }
 
