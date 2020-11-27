@@ -9,6 +9,10 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ContactSerivce } from "./services/contact.services";
 import { HttpClientModule } from '@angular/common/http';
 
+import { appRoutes } from './app.routes';
+import { RouterModule } from '@angular/router';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     FormsModule, 
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ContactSerivce],
   bootstrap: [AppComponent]
