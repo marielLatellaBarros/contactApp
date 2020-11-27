@@ -21,10 +21,6 @@ export class AppComponent implements OnInit{
     console.log('Received data!', event);
   }
 
-  createContact(event: Contact) {
-    this.contactService.addContact(event).subscribe(() => {
-      // this.fetchContactList(this.onlyFavorites)
-    });
-  }
+  
   
 }
