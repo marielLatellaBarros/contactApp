@@ -13,6 +13,7 @@ import { appRoutes } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { AddContactComponent } from './add-contact/add-contact.component';
+import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { AddContactComponent } from './add-contact/add-contact.component';
     ContactFormComponent,
     ContactListComponent,
     AddContactComponent,
+    ContactDetailComponent,
   ],
   imports: [
     BrowserModule,
