@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core"
-import { Contact } from '../models/contact.models';
-import { ContactSerivce } from "../services/contact.services";
+import { Contact } from '../models/contact.model';
+import { ContactService } from "../services/contact.service";
 
 @Component({
     selector:'app-contact',
@@ -13,7 +13,7 @@ export class ContactComponent implements OnInit {
     @Input() index: number;
     @Output() onUpdate: EventEmitter<any> = new EventEmitter();
 
-    constructor(private contactService: ContactSerivce){}
+    constructor(private contactService: ContactService){}
 
     ngOnInit(): void {
         throw new Error('Method not implemented.');
