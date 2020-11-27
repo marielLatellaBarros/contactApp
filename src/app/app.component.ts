@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Contact } from './models/contact.models';
+import { Contact } from './models/contact.model';
 
-import { ContactSerivce } from "./services/contact.services";
+import { ContactService } from "./services/contact.service";
 
 @Component({
   selector: 'app-root',
@@ -10,20 +10,12 @@ import { ContactSerivce } from "./services/contact.services";
 })
 export class AppComponent implements OnInit{
   myContact: Contact;
-  contactList: Contact[];
   title = 'contactApp';
 
-  constructor(private contactService: ContactSerivce) {}
+  constructor(private contactService: ContactService) {}
 
-  ngOnInit(): void {
-    this.fetchContactList();
-  }
+  ngOnInit(): void {}
 
-  fetchContactList(): void {
-    this.contactService.getContactList().subscribe(data => {
-      this.contactList = data;
-    })
-  }
 
   handleData(event: Contact) {
     console.log('Received data!', event);
@@ -31,13 +23,8 @@ export class AppComponent implements OnInit{
 
   createContact(event: Contact) {
     this.contactService.addContact(event).subscribe(() => {
-      this.fetchContactList()
+      // this.fetchContactList(this.onlyFavorites)
     });
   }
-
-  handleUpdate(): void {
-    this.fetchContactList();
-  }
-
   
 }

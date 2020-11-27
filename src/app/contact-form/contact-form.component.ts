@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Contact} from '../models/contact.models';
+import { Contact} from '../models/contact.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
