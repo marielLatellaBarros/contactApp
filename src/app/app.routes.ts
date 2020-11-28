@@ -8,5 +8,5 @@ export const appRoutes: Routes = [
     { path: 'contact/:id', component: ContactDetailComponent },
     { path: 'add', component: AddContactComponent },
     { path: 'list', component: ContactListComponent },
-    // { path: '', redirectTo: '/list', pathMatch: 'full' }
+    { path: '', redirectTo: '/list', pathMatch: 'full' }
 ];

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Contact} from '../models/contact.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
@@ -18,17 +18,21 @@ export class ContactFormComponent implements OnInit {
   isFavorite: boolean;
   form: FormGroup;
 
+  @Input() contact: Contact;
   @Output() onSubmit: EventEmitter<Contact> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      'name': new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      'email': new FormControl(null, [Validators.required, Validators.pattern(/^[a-z0-9_\.]+/i)]),
-      'phone': new FormControl(null, [Validators.required, Validators.minLength(9)]),
-      'isFavorite': new FormControl(false),
-      'avatar': new FormControl(null),
+      'name': new FormControl(this.contact ? this.contact.name: null,
+         [Validators.required, Validators.minLength(3)]),
+      'email': new FormControl(this.contact ? this.contact.email: null,
+         [Validators.required, Validators.pattern(/^[a-z0-9_\.]+/i)]),
+      'phone': new FormControl(this.contact ? this.contact.phone: null, 
+         [Validators.required, Validators.minLength(9)]),
+      'isFavorite': new FormControl(this.contact ? this.contact.isFavorite: false),
+      'avatar': new FormControl(this.contact ? this.contact.avatar: null),
     });
   }
 

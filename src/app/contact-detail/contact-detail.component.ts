@@ -12,6 +12,8 @@ export class ContactDetailComponent implements OnInit {
   id: string;
   contact: Contact;
   deleted: boolean = false;
+  editing: boolean = false;
+  updated: boolean = false;
 
   constructor(
     private router: Router,
@@ -34,6 +36,18 @@ export class ContactDetailComponent implements OnInit {
       this.deleted = true;
       setTimeout(() => this.router.navigateByUrl(''), 3000);
     });
+  }
 
+  toggleEditing(editing: boolean): void {
+    this.editing = !editing;
+  }
+
+  updateContact(contact: Contact): void {
+    this.contactService.updateContact(this.id, contact).subscribe(() => {
+      this.getContact(this.id);
+      this.editing = false;
+      this.updated = true;
+      setTimeout(() => (this.updated = false), 3000);
+    });
   }
 }

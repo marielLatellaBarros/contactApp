@@ -1,6 +1,13 @@
 <app-contact *ngIf="contact" [contact]="contact"></app-contact>
-<!-- //TODO: Is this ok here? -->
-<!-- <app-contact-form></app-contact-form> -->
 
-<button type="button" (click)="deleteContact(id)" [hidden]="deleted">Delete contact</button>
-<p [hidden]="!deleted">Contact deleted.</p>
+<app-contact-form *ngIf="contact && editing"
+[contact]="contact"></app-contact-form>
+
+<button type="button" class="edit" 
+(click)="toggleEditing(editing)">{{ editing ? 'Cancel' : 'Edit contact' }}</button>
+
+<button type="button" (click)="deleteContact(id)" [hidden]="deleted"
+class="delete">Delete contact</button>
+
+<p [hidden]="!updated" class="update-message">Contact update successful.</p>
+<p [hidden]="!deleted" class="delete-message">Contact deleted.</p>
