@@ -12,8 +12,13 @@ import { EditorState } from '../models/editor-state.enum';
 export class ContactDetailComponent implements OnInit {
   id: string;
   contact: Contact;
+  editing: boolean = false;
+  updated: boolean = false;
+  deleted: boolean = false;
+  
   editorState: any = EditorState;
   state: EditorState;
+  
 
   constructor(
     private router: Router,
