@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Contact } from '../models/contact.model';
 import { ContactService } from '../services/contact.service';
+import { EditorState } from '../models/editor-state.enum';
 
 @Component({
   selector: 'app-contact-detail',
@@ -11,9 +12,8 @@ import { ContactService } from '../services/contact.service';
 export class ContactDetailComponent implements OnInit {
   id: string;
   contact: Contact;
-  deleted: boolean = false;
-  editing: boolean = false;
-  updated: boolean = false;
+  editorState: any = EditorState;
+  state: EditorState;
 
   constructor(
     private router: Router,
@@ -33,21 +33,24 @@ export class ContactDetailComponent implements OnInit {
 
   deleteContact(id: string): void {
     this.contactService.deleteContact(id).subscribe(() => {
-      this.deleted = true;
+      this.state = EditorState.deleted;
       setTimeout(() => this.router.navigateByUrl(''), 3000);
     });
   }
 
   toggleEditing(editing: boolean): void {
-    this.editing = !editing;
+    if (this.state === EditorState.null) {
+      this.state = EditorState.editing;
+    } else {
+      this.state = EditorState.null;
+    }
   }
 
   updateContact(contact: Contact): void {
     this.contactService.updateContact(this.id, contact).subscribe(() => {
       this.getContact(this.id);
-      this.editing = false;
-      this.updated = true;
-      setTimeout(() => (this.updated = false), 3000);
+      this.state = EditorState.updated;
+      setTimeout(() => (this.state = EditorState.null), 3000);
     });
   }
 }
