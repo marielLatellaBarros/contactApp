@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Contact } from '../models/contact.model';
 import { ContactService } from '../services/contact.service';
 
@@ -11,8 +11,10 @@ import { ContactService } from '../services/contact.service';
 export class ContactDetailComponent implements OnInit {
   id: string;
   contact: Contact;
+  deleted: boolean = false;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private contactService: ContactService
   ) {}
@@ -25,5 +27,13 @@ export class ContactDetailComponent implements OnInit {
     this.contactService.getContact(id).subscribe((data) => {
       this.contact = data;
     });
+  }
+
+  deleteContact(id: string): void {
+    this.contactService.deleteContact(id).subscribe(() => {
+      this.deleted = true;
+      setTimeout(() => this.router.navigateByUrl(''), 3000);
+    });
+
   }
 }

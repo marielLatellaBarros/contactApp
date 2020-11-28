@@ -1,1 +1,6 @@
 <app-contact *ngIf="contact" [contact]="contact"></app-contact>
+<!-- //TODO: Is this ok here? -->
+<!-- <app-contact-form></app-contact-form> -->
+
+<button type="button" (click)="deleteContact(id)" [hidden]="deleted">Delete contact</button>
+<p [hidden]="!deleted">Contact deleted.</p>

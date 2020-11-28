@@ -67,5 +67,11 @@ export class ContactService {
       );
   }
 
-  
+  deleteContact(id: string) {
+    let url = `${CONTACTAPIURL}${id}.json`;
+    return this.http.delete(url);
+}
+
+
+
 }
