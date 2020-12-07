@@ -8,7 +8,7 @@ app.get("/", function (req, res) {
 // 2. JSON retour zenden
 let persoon = {
   voornaam: "Peter",
-  achternaam: "Kassenaar",
+  achternaam: "Bla",
 };
 app.get("/json", function (req, res) {
   res.json(persoon);
