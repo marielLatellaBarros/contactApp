@@ -10,7 +10,7 @@ import { Contact } from '../models/contact.model';
 })
 export class ContactListComponent implements OnInit {
   contactList: Contact[];
-  onlyFavorites: boolean = false;
+  onlyFavorites = false;
 
 
   constructor(private service: ContactService) { }
@@ -27,7 +27,7 @@ export class ContactListComponent implements OnInit {
     this.onlyFavorites = !onlyFav;
     this.fetchContactList(this.onlyFavorites);
   }
-  handleUpdate(): void {
+  handleUpdate(event): void {
     this.fetchContactList(this.onlyFavorites);
   }
 

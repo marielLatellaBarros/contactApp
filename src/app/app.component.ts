@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from './models/contact.model';
 
-import { ContactService } from "./services/contact.service";
+import { ContactService } from './services/contact.service';
 
 @Component({
   selector: 'app-root',
@@ -12,15 +12,12 @@ export class AppComponent implements OnInit{
   myContact: Contact;
   title = 'contactApp';
 
-  constructor(private contactService: ContactService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
 
-  handleData(event: Contact) {
+  handleData(event: Contact): void {
     console.log('Received data!', event);
   }
-
-  
-  
 }

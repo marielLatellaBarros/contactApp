@@ -12,13 +12,11 @@ import { EditorState } from '../models/editor-state.enum';
 export class ContactDetailComponent implements OnInit {
   id: string;
   contact: Contact;
-  editing: boolean = false;
-  updated: boolean = false;
-  deleted: boolean = false;
-  
+  editing = false;
+  updated = false;
+  deleted = false;
   editorState: any = EditorState;
   state: EditorState;
-  
 
   constructor(
     private router: Router,
@@ -27,10 +25,10 @@ export class ContactDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params.id;
     this.getContact(this.id);
   }
-  getContact(id: string) {
+  getContact(id: string): void {
     this.contactService.getContact(id).subscribe((data) => {
       this.contact = data;
     });
@@ -43,7 +41,7 @@ export class ContactDetailComponent implements OnInit {
     });
   }
 
-  toggleEditing(editing: boolean): void {
+  toggleEditing(): void {
     if (this.state === EditorState.null) {
       this.state = EditorState.editing;
     } else {
@@ -51,8 +49,8 @@ export class ContactDetailComponent implements OnInit {
     }
   }
 
-  updateContact(contact: Contact): void {
-    this.contactService.updateContact(this.id, contact).subscribe(() => {
+  updateContact(contact: Contact, id: string): void {
+    this.contactService.updateContact(id, contact).subscribe(() => {
       this.getContact(this.id);
       this.state = EditorState.updated;
       setTimeout(() => (this.state = EditorState.null), 3000);

@@ -3,7 +3,7 @@
 <app-contact-form *ngIf="contact && editing"
 [contact]="contact"></app-contact-form>
 
-<button type="button" class="edit" 
+<button type="button" class="edit"
 (click)="toggleEditing(editing)">{{ editing ? 'Cancel' : 'Edit contact' }}</button>
 
 <button type="button" (click)="deleteContact(id)" [hidden]="deleted"
@@ -16,7 +16,7 @@ class="delete">Delete contact</button>
 
 <app-contact-form *ngIf="contact && state === editorState.editing" [contact]="contact" (onSubmit)="updateContact($event, id)"></app-contact-form>
 
-<button type="button" class="edit" (click)="toggleEditing(editing)" [hidden]="state === editorState.deleted">{{ state === editorState.editing ? 'Cancel' : 'Edit contact' }}</button>
+<button type="button" class="edit" (click)="toggleEditing()" [hidden]="state === editorState.deleted">{{ state === editorState.editing ? 'Cancel' : 'Edit contact' }}</button>
 
 <button type="button" (click)="deleteContact(id)" [hidden]="state === editorState.deleted" class="delete">Delete contact</button>
 

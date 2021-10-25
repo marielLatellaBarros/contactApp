@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import { ContactService } from "./services/contact.service";
+import { ContactService } from './services/contact.service';
 import { HttpClientModule } from '@angular/common/http';
 
 import { appRoutes } from './app.routes';
@@ -28,7 +28,7 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
   ],
   imports: [
     BrowserModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
